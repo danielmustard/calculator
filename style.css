@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@600&display=swap');
+
+:root{
+    font-family: 'Biryani', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.calcContainer{
+    /* The part surrounding the calculator */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+#data-input{
+    height: 3em;
+    margin-bottom:10px;
+}
+
+button{
+    height: 3em;
+    width: 3em;
+}
+
+div#row-5 > button#zero{
+    width: 6.29em;
+}
+
