@@ -1,39 +1,86 @@
 //getting node list so we can select each button
-
 //getting all the buttons on the page
 const buttons = document.querySelectorAll('button')
-buttonsSelected = []
-
-let currentToatal = 0; 
-
 const inputBox = document.querySelector('input');
 
-//Adding event listener for each button
+const clearButton = document.querySelector('#ac')
+const operator = document.querySelectorAll('.operator');
+
+const sumButton = document.querySelector('.sum')
+
+let currentNumber = "";
+let lastNumber = "";
+
+let currentOperation = "";
+
 buttons.forEach(button => {
     button.addEventListener('click', () =>{
-        inputBox.value += button.id
-
-        if (button.id == " sum"){
-            sumArray = inputBox.value.split(" ");
-            console.log()
-            calcs(sumArray);
-        }
-
-        if(button.id == "ac") clearInputs();
-    });
-    
+        handleClick(button.id);                
+    })
 });
 
-const clearInputs = () => { 
-    inputBox.value = ""
-    buttonsSelected = [];
-    console.log(buttonsSelected);
-};
 
-
-calcs = (array) => {
-    
+const handleClick = (number) =>{
+    currentNumber += number;
+    inputBox.value = currentNumber;
 }
 
-//get the index that contains the operator then preform the action on the action between the one lower and one higher in the array
-//array.reduce where item is an operator and then do action between one lower and one upper and then add to running total
+//clearButton listener + Function
+clearButton.addEventListener('click', () => {
+    inputBox.value = "";
+    currentNumber = "";
+    lastNumber = "";
+})
+
+operator.forEach(opp => {
+    opp.addEventListener('click', (e) =>{
+        handleOperator(opp.textContent);
+    })
+});
+
+const handleOperator = (theop) =>{
+    lastNumber = currentNumber;
+    currentNumber = "";
+    currentOperation = theop
+    inputBox.value = ""
+}
+
+sumButton.addEventListener('click', ()=>{
+    operate(currentOperation,currentNumber,lastNumber);  
+})
+
+const operate = (opp,a,b) => {
+    let aToInt = parseInt(a);
+    let bToInt = parseInt(b);
+    if (opp == "+"){
+        console.log(addition(aToInt,bToInt));
+    }
+    if (opp == "-"){
+        console.log(subtraction(aToInt,bToInt));
+    }
+    if (opp == "*"){
+        console.log(multiply(aToInt,bToInt));
+    }
+    if (opp == "/"){
+        console.log(divide(aToInt,bToInt));
+    }
+}
+
+
+
+//All Calculator Operations 
+const addition = (a,b) => {
+    return a+b;
+}
+
+const subtraction = (a,b) => {
+    return b - a;
+}
+
+const multiply = (a,b) => {
+    return a * b;
+}
+
+const divide = (a,b) => { 
+    return b / a;
+}
