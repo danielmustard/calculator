@@ -12,6 +12,7 @@ let currentNumber = "";
 let lastNumber = "";
 
 let currentOperation = "";
+let runningTotal = 0;
 
 buttons.forEach(button => {
     button.addEventListener('click', () =>{
@@ -30,6 +31,8 @@ clearButton.addEventListener('click', () => {
     inputBox.value = "";
     currentNumber = "";
     lastNumber = "";
+    runningTotal = 0;
+    console.clear();
 })
 
 operator.forEach(opp => {
@@ -46,14 +49,21 @@ const handleOperator = (theop) =>{
 }
 
 sumButton.addEventListener('click', ()=>{
-    operate(currentOperation,currentNumber,lastNumber);  
+    console.log("Running Total",runningTotal)
+    if (runningTotal > 1 && currentNumber !== "") {
+        lastNumber = 0;
+        operate(currentOperation,currentNumber,lastNumber);
+    }else if (lastNumber !== 0){
+        operate(currentOperation,currentNumber,lastNumber);  
+    }
+    
 })
 
 const operate = (opp,a,b) => {
     let aToInt = parseInt(a);
     let bToInt = parseInt(b);
     if (opp == "+"){
-        console.log(addition(aToInt,bToInt));
+        runningTotal += addition(aToInt,bToInt);
     }
     if (opp == "-"){
         console.log(subtraction(aToInt,bToInt));
@@ -64,6 +74,7 @@ const operate = (opp,a,b) => {
     if (opp == "/"){
         console.log(divide(aToInt,bToInt));
     }
+    console.log(runningTotal);
 }
 
 
