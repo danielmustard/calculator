@@ -69,6 +69,7 @@ const operate = (opp,a,b) => {
     if (opp == "/"){
         divide(aToInt,bToInt);
     }
+    console.log(runningTotal);
 }
 
 //All Calculator Operations 
