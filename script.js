@@ -2,16 +2,16 @@
 //getting all the buttons on the page
 const buttons = document.querySelectorAll('button')
 const inputBox = document.querySelector('input');
-
 const clearButton = document.querySelector('#ac')
 const operator = document.querySelectorAll('.operator');
-
 const sumButton = document.querySelector('.sum')
 
 let currentNumber = "";
 let lastNumber = "";
 
 let currentOperation = "";
+
+let total = 0;
 
 buttons.forEach(button => {
     button.addEventListener('click', () =>{
@@ -30,6 +30,7 @@ clearButton.addEventListener('click', () => {
     inputBox.value = "";
     currentNumber = "";
     lastNumber = "";
+    total = 0;
 })
 
 operator.forEach(opp => {
@@ -46,41 +47,47 @@ const handleOperator = (theop) =>{
 }
 
 sumButton.addEventListener('click', ()=>{
-    operate(currentOperation,currentNumber,lastNumber);  
+    if (total !== 0){
+        lastNumber = total;
+    }
+    operate(currentOperation,currentNumber,lastNumber);
+    inputBox.value = total;
 })
 
 const operate = (opp,a,b) => {
     let aToInt = parseInt(a);
     let bToInt = parseInt(b);
     if (opp == "+"){
-        console.log(addition(aToInt,bToInt));
+        addition(aToInt,bToInt);
     }
     if (opp == "-"){
-        console.log(subtraction(aToInt,bToInt));
+        subtraction(aToInt,bToInt);
     }
     if (opp == "*"){
-        console.log(multiply(aToInt,bToInt));
+        multiply(aToInt,bToInt);
     }
     if (opp == "/"){
-        console.log(divide(aToInt,bToInt));
+        divide(aToInt,bToInt);
     }
 }
 
-
-
 //All Calculator Operations 
 const addition = (a,b) => {
+    total = a+b;
     return a+b;
 }
 
 const subtraction = (a,b) => {
+    total = b-a;
     return b - a;
 }
 
 const multiply = (a,b) => {
+    total = a*b;
     return a * b;
 }
 
-const divide = (a,b) => { 
+const divide = (a,b) => {
+    total = b / a; 
     return b / a;
 }

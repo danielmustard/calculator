@@ -5,6 +5,21 @@
     padding: 0;
     margin: 0;
 }
+.calcScreen{
+    display: flex;
+}
+#data-input{
+    flex: 1;
+}
+
+#0{
+    width: 6.3em;
+}
+.calcButtons{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
 
 .calcContainer{
     /* The part surrounding the calculator */
