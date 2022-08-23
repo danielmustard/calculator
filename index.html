@@ -8,48 +8,65 @@
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
 
+    <script>
+        const bgFade = (e) =>{
+            e.style['background'] = '#d4d4d2';                 
+        }
+        const bgRevert = (e) => {
+            if (e.className == "operator" || e.className == "sum"){
+                e.style['background'] = '#ff9500';
+            } else{
+                e.style['background'] = '#505050'
+            }
+            
+        }
+    </script>
+
 </head>
 <body>
-    <div class="calcContainer">
-        <div class="calc">
-            <div class="calcScreen">
-                <input type="text" name="dataInput" id="data-input" inputmode="numeric" disabled>
-            </div>
-    
-            <div class="calcButtons">
-                <div class="row" id="row-1">
-                    <button id="ac">AC</button>
-                    <button id="+/-">+/-</button>
-                    <button id="%">%</button>
-                    <button id=" div " value="/" class="operator">/</button>
+    <div class="bg"></div>
+        <div class="calcContainer">
+            <div class="calc">
+                <div class="calcScreen">
+                    <input type="text" name="dataInput" id="data-input" inputmode="numeric" disabled>
                 </div>
-                <div class="row" id="row-2">
-                    <button id="7" class="number">7</button>
-                    <button id="8" class="number">8</button>
-                    <button id="9" class="number">9</button>
-                    <button id=" mul" value="*" class="operator">*</button>
-                </div>
-                <div class="row" id="row-3">
-                    <button id="4" class="number">4</button>
-                    <button id="5" class="number">5</button>
-                    <button id="6">6</button>
-                    <button id=" sub " value="-" class="operator">-</button>
-                </div>
-                <div class="row" id="row-4">
-                    <button id="1">1</button>
-                    <button id="2">2</button>
-                    <button id="3">3</button>
-                    <button value="+" class="operator">+</button>
-                </div>
-                <div class="row" id="row-5">
-                    <button id="0" class="zero">0</button>
-                    <button id=".">.</button>
-                    <button value="=" class="sum">=</button>
+        
+                <div class="calcButtons">
+                    <div class="row" id="row-1">
+                        <button id="ac" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">AC</button>
+                        <button id="+/-" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">+/-</button>
+                        <button id="%" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">%</button>
+                        <button id=" div " value="/" class="operator" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">/</button>
+                    </div>
+                    <div class="row" id="row-2">
+                        <button id="7" class="number" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">7</button>
+                        <button id="8" class="number" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">8</button>
+                        <button id="9" class="number" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">9</button>
+                        <button id=" mul" value="*" class="operator" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">*</button>
+                    </div>
+                    <div class="row" id="row-3">
+                        <button id="4" class="number" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">4</button>
+                        <button id="5" class="number" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">5</button>
+                        <button id="6">6</button>
+                        <button id=" sub " value="-" class="operator" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">-</button>
+                    </div>
+                    <div class="row" id="row-4">
+                        <button id="1" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">1</button>
+                        <button id="2" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">2</button>
+                        <button id="3" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">3</button>
+                        <button value="+" class="operator" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">+</button>
+                    </div>
+                    <div class="row" id="row-5">
+                        <button id="0" class="zero" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">0</button>
+                        <button id="." onmousedown="bgFade(this)" onmouseup="bgRevert(this)">.</button>
+                        <button value="=" class="sum" onmousedown="bgFade(this)" onmouseup="bgRevert(this)">=</button>
+                    </div>
                 </div>
             </div>
         </div>
         
-    </div>
+    
+    
 
 
 </body>

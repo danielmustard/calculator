@@ -4,30 +4,52 @@
     font-family: 'Biryani', sans-serif;
     padding: 0;
     margin: 0;
+    overflow: hidden;
+    background-color: #1c1c1c;
 }
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.operator, .sum{
+    background-color: #ff9500;
+}
+
 .calcScreen{
     display: flex;
 }
+.calcContainer{
+    flex: 1;
+}
 #data-input{
     flex: 1;
+    text-align: end;
+    color: white;
+    font-size: 20px;
 }
 
 .zero{
     width: 6.3em;
+    border-radius: 30%;
 }
 .calcButtons{
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 7px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
 }
 
 .calcContainer{
     /* The part surrounding the calculator */
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
 }
 #data-input{
     height: 3em;
@@ -36,10 +58,15 @@
 
 button{
     height: 3em;
+    font-size: 20px;
     width: 3em;
+    border-radius: 50%;
+    background-color: #505050;
+    color: white;
+    border: none;
+    transition-duration: 200ms;
 }
 
-div#row-5 > button#zero{
-    width: 6.29em;
-}
+
+
 
